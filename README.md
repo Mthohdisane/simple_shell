@@ -41,6 +41,7 @@ Below is the list of allowed and used functions and system calls.
 The shell is compiled this way.  
 `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
 
+## Testing.
 
 > All the files in this repo are written and tested on Ubuntu 20.04 LTS using `gcc` with the flags `-Wall -Werror -pedantic -Wextra -std=gnu89`
 > The contributing authors are listed in the file [AUTHORS](/AUTHORS)
