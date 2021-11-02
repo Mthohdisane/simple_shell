@@ -1,2 +1,0 @@
-#!/bin/bash
-echo "current_working_directory is" $PWD
