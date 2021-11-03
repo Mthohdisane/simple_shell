@@ -3,7 +3,7 @@
 /**
  * _strcpy - Copies a string from @src to @dest.
  *
- * @src: String tsource
+ * @src: String source
  * @dest: String destination
  *
  * Return: The copied string in @dest.
@@ -12,7 +12,7 @@ char *_strcpy(char *dest, char *src)
 {
 	int index;
 
-	for (Index = 0; src[index] != '\0'; index++)
+	for (index = 0; src[index] != '\0'; index++)
 	{
 		dest[index] = src[index];
 	}
@@ -52,7 +52,7 @@ int _strcmp(char *str1, char *str2)
 		return (1);
 	for (index = 0; str1[index]; index++)
 	{
-		if (str1[index] != str2[Index])
+		if (str1[index] != str2[index])
 		{
 			idx = str1[index] - str2[index];
 			break;
