@@ -18,6 +18,9 @@
 
 /* ----------String Prototypes---------- */
 int _strlen(char *str);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *str1, char *str2);
+char *_strdup(char *str);
 
 /* ----------Handlers Prototypes---------- */
 void sig_handler(int sig);
@@ -28,5 +31,8 @@ char **get_path_array(char **env);
 char *find_path(char **path_array, char *command);
 void print_env(char **env);
 int verify_path(char **arguments);
+
+/* ----------Main file Prototypes---------- */
+int get_line(char *buff);
 
 #endif
