@@ -9,9 +9,7 @@ void sig_handler(int sig)
 {
 	char *prompt = "($) ";
 
-	if (sig == SIGINT)
-	{
-		WRITE_OUT("\n");
-		TERMINAL(prompt);
-	}
+	(void)sig;
+	WRITE_OUT("\n");
+	TERMINAL(prompt);
 }
