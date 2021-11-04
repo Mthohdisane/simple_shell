@@ -29,7 +29,7 @@ char *rmNewline(char *buff)
 	str = malloc(sizeof(char) * BUF_SIZE);
 	if (str == NULL)
 		return (NULL);
-	
+
 	for (index = 0; *(buff + index) != '\n'; index++)
 		*(str + index) = *(buff + index);
 
