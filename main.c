@@ -1,27 +1,18 @@
 #include "shell.h"
 
-int get_line(char *buff)
-{
-	size_t num;
-	char *prompt = "($) ";
-
-	/*buff = malloc(sizeof(char) * BUF_SIZE);*/
-	if (buff == NULL)
-		return (-1);
-	if (isatty(STDIN_FILENO))
-		TERMINAL(prompt);
-	getline(&buff, &num, stdin);
-
-	return (0);
-}
-
+/**
+ * main - Program's entry point.
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
 	char *buff;
-	char *argv[100] __attribute__((__unused__));
-	int length, index;
+	int index;
 	char *token;
 	char *delimiter = " ";
+	char *str;
+	char *argv[256] __attribute__((unused));
 
 	buff = malloc(sizeof(char) * BUF_SIZE);
 	signal(SIGINT, sig_handler);
@@ -33,19 +24,9 @@ int main(void)
 				WRITE_OUT("\n");
 			break;
 		}
+		str = rmNewline(buff);
 
-		length = _strlen(buff);
-
-		if (length == 0)
-			break;
-
-		/*if (buff[length - 1] == '\n')
-			buff[length - 1] == '\0';*/
-
-		if (_strcmp(buff, "exit") == 0)
-			break;
-
-		token = strtok(buff, delimiter);
+		token = strtok(str, delimiter);
 		index = 0;
 		while (token != NULL)
 		{
