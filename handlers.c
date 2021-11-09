@@ -1,20 +1,6 @@
 #include "shell.h"
 
 /**
- * sig_handler - Handles the signal during process interruption.
- *
- * @sig: Signal identifier.
- */
-void sig_handler(int sig)
-{
-	char *prompt = "($) ";
-
-	(void)sig;
-	WRITE_OUT("\n");
-	TERMINAL(prompt);
-}
-
-/**
  * rmNewline - Removes the '\n' placed by getline function.
  *
  * @buff: String stored by getline.
@@ -33,7 +19,6 @@ char *rmNewline(char *buff)
 	for (index = 0; *(buff + index) != '\n'; index++)
 		*(str + index) = *(buff + index);
 
-	free(str);
 	return (str);
 }
 
