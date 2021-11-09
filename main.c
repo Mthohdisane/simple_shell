@@ -8,14 +8,11 @@
 int main(void)
 {
 	char *buff;
-	int index;
-	char *token;
-	char *delimiter = " ";
+	int status;
 	char *str;
-	char *argv[256] __attribute__((unused));
+	char *argv[BUF_SIZE];
 
 	buff = malloc(sizeof(char) * BUF_SIZE);
-	signal(SIGINT, sig_handler);
 	while (1)
 	{
 		if (get_line(buff) == -1)
@@ -25,16 +22,10 @@ int main(void)
 			break;
 		}
 		str = rmNewline(buff);
-
-		token = strtok(str, delimiter);
-		index = 0;
-		while (token != NULL)
-		{
-			argv[index] = token;
-			token = strtok(NULL, delimiter);
-			index++;
-		}
-		argv[index] = NULL;
+		parse(str, argv);
+		if (_strcmp(argv[0], "exit") == 0)
+			break;
+		execute(argv);
 	}
 	free(buff);
 	return (0);

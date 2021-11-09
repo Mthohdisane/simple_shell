@@ -7,9 +7,20 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <signal.h>
 #include <fcntl.h>
 #include <errno.h>
+
+typedef struct line 
+{
+	char *input;
+	char **args;
+	char *command;
+	char *envp;
+	char *error;
+	char *data;
+} buff;
 
 /* ----------Macros---------- */
 #define TERMINAL(prompt) (write(STDIN_FILENO, prompt, _strlen(prompt)))
@@ -33,5 +44,8 @@ char **get_path_array(char **env);
 char *find_path(char **path_array, char *command);
 void print_env(char **env);
 int verify_path(char **arguments);
+
+int execute(char *argv[]);
+void parse(char *buff, char *argv[]);
 
 #endif
